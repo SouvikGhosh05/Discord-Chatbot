@@ -1,0 +1,12 @@
+discord
+discord-components==1.1.4
+geopy
+aiohttp
+Pillow
+pytz
+tzdata
+requests
+aiofile==3.7.1
+async-lru==1.0.2
+Flask
+gunicorn
