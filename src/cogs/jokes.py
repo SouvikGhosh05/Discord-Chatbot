@@ -23,14 +23,7 @@ class Jokes(commands.Cog):
     async def funny_jokes(self, ctx, *, typed: str = None):
 
         typed = typed or "any" or "misc"
-        if typed.lower() in [
-            "any",
-            "spooky",
-            "dark",
-            "pun",
-            "christmas",
-            "misc",
-        ]:
+        if typed.lower() in ["any", "spooky", "dark", "pun", "christmas", "misc"]:
             async with ctx.typing():
 
                 url = f"https://random-stuff-api.p.rapidapi.com/joke"
