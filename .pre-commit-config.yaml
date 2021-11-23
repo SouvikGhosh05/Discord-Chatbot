@@ -12,7 +12,7 @@ repos:
     -   id: black
         exclude: |
             (?x)(
-            ^src/cogs/geography.py|
-            ^src/cogs/qna.py
+            ^cogs/geography.py|
+            ^cogs/qna.py
             )
 
