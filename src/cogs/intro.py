@@ -15,34 +15,12 @@ class Main_BOT(commands.Cog):
         self.tz = ZoneInfo("Asia/Kolkata")
 
     @commands.Cog.listener()
-    async def on_guild_join(self, guild):
-        async with async_open("cogs/guilds.json", "r") as f:
-            guildInfo = json.loads(await f.read())
-
-        guildInfo[guild.id] = str(guild.text_channels[0].id)
-
-        async with async_open("cogs/guilds.json", "w") as f:
-            await f.write(json.dumps(guildInfo, indent=4))
-
-    @commands.Cog.listener()
-    async def on_guild_remove(self, guild):
-        async with async_open("cogs/guilds.json", "r") as f:
-            guildInfo = json.loads(await f.read())
-
-        guildInfo.pop(str(guild.id))
-
-        async with async_open("cogs/guilds.json", "w") as f:
-            await f.write(json.dumps(guildInfo, indent=4))
-
-    @commands.Cog.listener()
     async def on_member_join(self, member):
-        async with async_open("cogs/guilds.json", "r") as f:
-            guildInfo = json.loads(await f.read())
 
         mem = member.id
         user = self.bot.get_user(mem)
 
-        channel = guildInfo[str(member.guild.id)]
+        channel = member.guild.text_channels[0].id
         welcome_emby = discord.Embed(
             title="New Member!!!",
             description=f"{member.mention} has joined the server! 🎉\nThe current number of members are {member.guild.member_count} 🥳",
@@ -182,26 +160,6 @@ class Main_BOT(commands.Cog):
                 "**Sorry! Bot has no permission to change nickname in this server ☹️.**",
                 delete_after=3,
             )
-
-    @commands.command(name="setwelcome", aliases=["setwlcm"])
-    @commands.has_permissions(administrator=True)
-    async def set_welcome_message(self, ctx):
-
-        async with async_open("cogs/guilds.json", "r") as f:
-            guildInfo = json.loads(await f.read())
-
-        guildInfo.pop(str(ctx.guild.id))
-        guildInfo[ctx.guild.id] = str(ctx.channel.id)
-
-        async with async_open("cogs/guilds.json", "w") as f:
-            await f.write(json.dumps(guildInfo, indent=4))
-
-        await ctx.send("*Welcome channel has been changed!*")
-
-    @set_welcome_message.error
-    async def welcome_error(self, ctx, error):
-        if isinstance(error, MissingPermissions):
-            await ctx.send("**:x: | You do not have permission to use this command!**")
 
     @commands.command()
     @commands.has_guild_permissions(kick_members=True)

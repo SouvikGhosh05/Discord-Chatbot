@@ -1,5 +1,5 @@
 
-name: Discord Chatbot
+name: Discord Chatbot Heroku Deployment
 
 on: [push, pull_request]
 
@@ -10,15 +10,38 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - run: |
+        git fetch --prune --unshallow
     - name: Set up Python 3.10
       uses: actions/setup-python@v2
       with:
         python-version: "3.10"
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
     - name: Install pre-commit
       run: |
+          export PYTHONPATH=src
           python -m pip install --upgrade pre-commit
     - run: pre-commit run --verbose --all-files --show-diff-on-failure
+
+    - name: Deploy to Heroku
+      env:
+        HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
+        HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+        City_API: ${{ secrets.CITY_API }}
+        RAPID_API1: ${{ secrets.RAPID_API1 }}
+        RAPID_API2: ${{ secrets.RAPID_API2 }}
+        GIPHY_API: ${{ secrets.GIPHY_API }}
+        R_CLIENT_ID: ${{ secrets.R_CLIENT_ID }}
+        R_CLIENT_SECRET: ${{ secrets.R_CLIENT_SECRET }}
+        R_PASSWORD: ${{ secrets.R_PASSWORD }}
+        R_USERNAME: ${{ secrets.R_USERNAME }}
+      if: github.ref == 'refs/heads/main' && job.status == 'success'
+      run: |
+        git remote add heroku https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git
+        git push heroku HEAD:main -f
