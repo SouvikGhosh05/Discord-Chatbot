@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath src app:app
+web: gunicorn --pythonpath src --bind 0.0.0.0:$PORT app:app
