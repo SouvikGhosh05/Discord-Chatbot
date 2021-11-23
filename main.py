@@ -1,12 +1,9 @@
 import discord
 from discord.ext import commands, tasks
 from discord.ext.commands import CommandNotFound
-
-# from dotenv import load_dotenv
 import asyncio
 import os
 
-# load_dotenv("../.env")
 Token = os.getenv("DISCORD_TOKEN")
 intents = discord.Intents().all()
 bot = commands.Bot(

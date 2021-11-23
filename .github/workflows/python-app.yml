@@ -31,15 +31,6 @@ jobs:
       env:
         HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
         HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
-        City_API: ${{ secrets.CITY_API }}
-        RAPID_API1: ${{ secrets.RAPID_API1 }}
-        RAPID_API2: ${{ secrets.RAPID_API2 }}
-        GIPHY_API: ${{ secrets.GIPHY_API }}
-        R_CLIENT_ID: ${{ secrets.R_CLIENT_ID }}
-        R_CLIENT_SECRET: ${{ secrets.R_CLIENT_SECRET }}
-        R_PASSWORD: ${{ secrets.R_PASSWORD }}
-        R_USERNAME: ${{ secrets.R_USERNAME }}
       if: github.ref == 'refs/heads/main' && job.status == 'success'
       run: |
         git remote add heroku https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git

@@ -3,7 +3,7 @@ from discord.ext import commands
 from aiohttp import ClientSession
 from decimal import Decimal as dc
 from json import loads
-from os import getenv, getcwd
+from os import getenv
 
 
 json_data = """
@@ -53,7 +53,7 @@ json_dict = loads(json_data)
 
 class Ext_Info(commands.Cog):
 
-    C_api = getenv("City_API")
+    C_api = getenv("CITY_API")
 
     def __init__(self, bot):
         self.bot = bot
