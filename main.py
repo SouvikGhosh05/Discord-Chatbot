@@ -38,7 +38,7 @@ async def on_command_error(ctx, error):
 
 
 print(os.getcwd())
-with os.scandir("src/cogs") as cog_dir:
+with os.scandir("cogs") as cog_dir:
     for cog in cog_dir:
         if cog.is_file() and cog.name.endswith(".py"):
             bot.load_extension(f"cogs.{cog.name[:-3]}")
