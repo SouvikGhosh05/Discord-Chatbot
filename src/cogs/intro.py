@@ -1,6 +1,5 @@
 import discord
 import json
-from aiofile import async_open
 from discord.ext import commands
 from discord.ext.commands import MissingPermissions
 from discord.ext.commands.errors import BotMissingPermissions
