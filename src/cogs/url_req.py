@@ -2,13 +2,53 @@ import discord
 from discord.ext import commands
 from aiohttp import ClientSession
 from decimal import Decimal as dc
-from json import load
+from json import loads
 from os import getenv, getcwd
 
-print(getcwd())
 
-with open("./states.json", "r") as json_data:
-    json_dict = load(json_data)
+json_data = """
+{
+    "Andhra Pradesh"                : "AP",
+    "Arunachal Pradesh"             : "AR",
+    "Assam"                         : "AS",
+    "Bihar"                         : "BR",
+    "Chhattisgarh"                  : "CT",
+    "Goa"                           : "GA",
+    "Gujarat"                       : "GJ",
+    "Haryana"                       : "HR",
+    "Himachal Pradesh"              : "HP",
+    "Jharkhand"                     : "JH",
+    "Karnataka"                     : "KA",
+    "Kerala"                        : "KL",
+    "Madhya Pradesh"                : "MP",
+    "Maharashtra"                   : "MH",
+    "Manipur"                       : "MN",
+    "Meghalaya"                     : "ML",
+    "Mizoram"                       : "MZ",
+    "Nagaland"                      : "NL",
+    "Odisha"                        : "OR",
+    "Punjab"                        : "PB",
+    "Rajasthan"                     : "RJ",
+    "Sikkim"                        : "SK",
+    "Tamil Nadu"                    : "TN",
+    "Telangana"                     : "TG",
+    "Tripura"                       : "TR",
+    "Uttar Pradesh"                 : "UP",
+    "Uttarakhand"                   : "UT",
+    "West Bengal"                   : "WB",
+    "Andaman And Nicobar Islands"   : "AN",
+    "Dadra and Nagar Haveli"        : "DN",
+    "Chandigarh"                    : "CH",
+    "Delhi"                         : "DL",
+    "Jammu And Kashmir"             : "JK",
+    "Ladakh"                        : "LA",
+    "Lakshadweep"                   : "LD",
+    "Puducherry"                    : "PY"
+}
+"""
+
+
+json_dict = loads(json_data)
 
 
 class Ext_Info(commands.Cog):

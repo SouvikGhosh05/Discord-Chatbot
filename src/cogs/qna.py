@@ -1,6 +1,6 @@
 import discord
 from aiohttp import ClientSession
-from json import load
+from json import loads
 from random import shuffle
 from discord.ext import commands
 from discord_components import (
@@ -12,8 +12,38 @@ from discord_components import (
 )
 from asyncio import gather, TimeoutError
 
-with open("./questions_category.json", "r") as json_data:
-    json_dict = load(json_data)
+
+json_data = """
+{
+    "General Knowledge"     : "9",
+    "Books"                 : "10",
+    "Movies"                : "11",
+    "Music"                 : "12",
+    "Television"            : "14",
+    "Musicals & Theatres"   : "13",
+    "Comics"                : "29",
+    "Japanese Anime"        : "31",
+    "Cartoons"              : "32",
+    "Video Games"           : "15",
+    "Board Games"           : "16",
+    "Science & Nature"      : "17",
+    "Computers & Internet"  : "18",
+    "Gadgets"               : "30",
+    "Mathematics"           : "19",
+    "Mythology"             : "20",
+    "Sports"                : "21",
+    "Geography"             : "22",
+    "History"               : "23",
+    "Politics"              : "24",
+    "Art"                   : "25",
+    "Celebrities"           : "26",
+    "Animals"               : "27",
+    "Vehicles"              : "28"
+}
+"""
+
+
+json_dict = loads(json_data)
 
 
 class QuesAns(commands.Cog):
