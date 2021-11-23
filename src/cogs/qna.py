@@ -12,7 +12,7 @@ from discord_components import (
 )
 from asyncio import gather, TimeoutError
 
-with open("cogs/questions_category.json", "r") as json_data:
+with open("./questions_category.json", "r") as json_data:
     json_dict = load(json_data)
 
 

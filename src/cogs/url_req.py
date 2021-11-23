@@ -3,9 +3,11 @@ from discord.ext import commands
 from aiohttp import ClientSession
 from decimal import Decimal as dc
 from json import load
-from os import getenv
+from os import getenv, getcwd
 
-with open("cogs/states.json", "r") as json_data:
+print(getcwd())
+
+with open("./states.json", "r") as json_data:
     json_dict = load(json_data)
 
 
