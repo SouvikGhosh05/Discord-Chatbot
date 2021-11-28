@@ -1,0 +1,44 @@
+body{
+    background-color: #0fe4af;
+    font-size: 64px;
+    font-weight: 600;
+    text-shadow: rgba(216, 58, 163, 0.774) 2px 2px 4px;
+    display: flexbox;
+    justify-content: center;
+    text-align:center;
+}
+
+#p1{
+    text-align: center;
+    color: rgb(223, 148, 63);
+}
+
+#p2{
+    text-align: center;
+    color: rgba(230, 44, 130, 0.877);
+}
+
+.bottxt{
+    text-align: center;
+    font-size: 30px;
+    color: rgba(62, 7, 192, 0.774);
+}
+.botbox{
+    width: 20%;
+    background-color: rgb(238, 238, 201);
+    border-radius:15px;
+    margin:auto;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(34, 33, 33, 0.548);
+}
+
+.botimg{
+    width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+
+#p2{ 
+    font-size: 30px;
+    }
+}
