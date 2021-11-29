@@ -3,9 +3,8 @@ body{
     font-size: 64px;
     font-weight: 600;
     text-shadow: rgba(216, 58, 163, 0.774) 2px 2px 4px;
-    display: flexbox;
     justify-content: center;
-    text-align:center;
+    text-align: center;
 }
 
 #p1{
