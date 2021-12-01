@@ -34,7 +34,6 @@ async def on_command_error(ctx, error):
         await ctx.send("**Invalid command! Type <~h> for more info**")
 
 
-print(os.getcwd())
 with os.scandir("cogs") as cog_dir:
     for cog in cog_dir:
         if cog.is_file() and cog.name.endswith(".py"):

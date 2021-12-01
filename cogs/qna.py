@@ -2,6 +2,7 @@ import discord
 from aiohttp import ClientSession
 from json import loads
 from random import shuffle
+from html import unescape
 from discord.ext import commands
 from discord_components import (
     DiscordComponents,
@@ -158,7 +159,7 @@ class QuesAns(commands.Cog):
                     shuffle(answers)
                     try:
                         await res.user.send(
-                            i["question"],
+                            unescape(i["question"]),
                             components=[
                                 Select(
                                     placeholder="Select your answer!",
