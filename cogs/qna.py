@@ -166,16 +166,20 @@ class QuesAns(commands.Cog):
                                     max_values=1,
                                     options=[
                                         SelectOption(
-                                            label=str(answers[0]), value=str(answers[0])
+                                            label=str(unescape(answers[0])),
+                                            value=str(answers[0]),
                                         ),
                                         SelectOption(
-                                            label=str(answers[1]), value=str(answers[1])
+                                            label=str(unescape(answers[1])),
+                                            value=str(answers[1]),
                                         ),
                                         SelectOption(
-                                            label=str(answers[2]), value=str(answers[2])
+                                            label=str(unescape(answers[2])),
+                                            value=str(answers[2]),
                                         ),
                                         SelectOption(
-                                            label=str(answers[3]), value=str(answers[3])
+                                            label=str(unescape(answers[3])),
+                                            value=str(answers[3]),
                                         ),
                                     ],
                                 )
