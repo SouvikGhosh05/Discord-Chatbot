@@ -67,6 +67,7 @@ class Ext_Info(commands.Cog):
                 async with ClientSession() as session:
                     async with session.get(fetch_url) as resp:
                         c_res = await resp.json()
+                        print(c_res)
 
                 if "message" in c_res.keys():
                     await ctx.send("**Incorrect city name, recheck again!**")
@@ -75,8 +76,10 @@ class Ext_Info(commands.Cog):
                     "city": c_res["name"],
                     "country": c_res["sys"]["country"],
                     "position": f"lat: {c_res['coord']['lat']}, lon: {c_res['coord']['lon']}",
-                    "temperature": round(dc(c_res["main"]["temp"] - 273), 3),
-                    "temp_feelslike": round(dc(c_res["main"]["feels_like"] - 273), 3),
+                    "current_temperature": round(dc(c_res["main"]["temp"] - 273), 2),
+                    "temperature_max": round(dc(c_res["main"]["temp_max"] - 273), 2),
+                    "temperature_min": round(dc(c_res["main"]["temp_min"] - 273), 2),
+                    "temp_feelslike": round(dc(c_res["main"]["feels_like"] - 273), 2),
                     "humidity": c_res["main"]["humidity"],
                     "description": c_res["weather"][0]["description"],
                     "wind_speed": round(dc(c_res["wind"]["speed"] * 3.6), 2),
@@ -95,7 +98,7 @@ class Ext_Info(commands.Cog):
                 city_embed.add_field(name="Country", value=city_info["country"])
                 city_embed.add_field(
                     name="Temperature",
-                    value=f"{city_info['temperature']}°C, *feels like* {city_info['temp_feelslike']}°C, *humidity* {city_info['humidity']}%",
+                    value=f"*Current*: {city_info['current_temperature']}°C, \n*Feels like*: {city_info['temp_feelslike']}°C, \n*Humidity*: {city_info['humidity']}%",
                 )
                 city_embed.add_field(
                     name="Wind speed",
