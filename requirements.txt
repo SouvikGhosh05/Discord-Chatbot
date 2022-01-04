@@ -9,4 +9,4 @@ requests==2.26.0
 async-lru==1.0.2
 Flask==2.0.2
 Jinja2==3.0.3
-gunicorn==20.1.0
+gunicorn
