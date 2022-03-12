@@ -98,7 +98,8 @@ class Ext_Info(commands.Cog):
                 city_embed.add_field(name="Country", value=city_info["country"])
                 city_embed.add_field(
                     name="Temperature",
-                    value=f"*Current*: {city_info['current_temperature']}°C, \n*Feels like*: {city_info['temp_feelslike']}°C, \n*Humidity*: {city_info['humidity']}%",
+                    value=f"*Current*: {city_info['current_temperature']}°C, \
+                        \n*Feels like*: {city_info['temp_feelslike']}°C, \n*Humidity*: {city_info['humidity']}%",
                 )
                 city_embed.add_field(
                     name="Wind speed",
@@ -160,7 +161,8 @@ class Ext_Info(commands.Cog):
                         "source": st_info["data_info"]["tested"]["source"]
                         if "source" in st_info["data_info"]["tested"].keys()
                         else "*Not Available*",
-                        "last_updated": f"*{st_info['data_info']['last_updated'][:10]} at {st_info['data_info']['last_updated'][11:19]}*",
+                        "last_updated": f"*{st_info['data_info']['last_updated'][:10]} at \
+                        {st_info['data_info']['last_updated'][11:19]}*",
                     }
 
                     recovery_rate = (
@@ -172,7 +174,8 @@ class Ext_Info(commands.Cog):
                     )
                     covid_embed.set_author(
                         name="Coronavirus Info",
-                        icon_url="https://cdn.discordapp.com/attachments/857225424115597334/874307648953147422/7528_coronavirus.png",
+                        icon_url="https://cdn.discordapp.com/attachments/\
+                        857225424115597334/874307648953147422/7528_coronavirus.png",
                     )
                     covid_embed.add_field(name="Population", value=data["population"])
                     covid_embed.add_field(
@@ -180,7 +183,8 @@ class Ext_Info(commands.Cog):
                     )
                     covid_embed.add_field(
                         name="Active cases",
-                        value=f"*Confirmed cases: {data['confirmed']}, Recovered: {data['recovered']}, \nRecovery rate: {recovery_rate}, Deceased: {data['deceased']}*",
+                        value=f"*Confirmed cases: {data['confirmed']}, Recovered: {data['recovered']}, \
+                            \nRecovery rate: {recovery_rate}, Deceased: {data['deceased']}*",
                     )
                     covid_embed.add_field(
                         name="Results tested on", value=data["test_date"]

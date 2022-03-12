@@ -60,7 +60,9 @@ class QuesAns(commands.Cog):
             }
             button_embed = discord.Embed(
                 title="Multiple Choice",
-                description="Each questions will be Multiple Choice questions. For each correct answers you will receive 5 points. Each questions will have 15 seconds timeout.",
+                description="Each questions will be Multiple Choice questions. \
+                    For each correct answers you will receive 5 points. \
+                    Each questions will have 15 seconds timeout.",
                 color=discord.Color.dark_magenta(),
             )
             button_embed.add_field(
@@ -206,14 +208,16 @@ class QuesAns(commands.Cog):
                     except TimeoutError:
                         await res.user.send("Timed out!")
                         await res.user.send(
-                            content=f"For each correct answers, you get 5.\nYou scored `5*{no_of_correct_questions_answered}= {score}`! 😄\nThanks for playing with bot!...."
+                            content=f"For each correct answers, you get 5.\nYou scored \
+                                `5*{no_of_correct_questions_answered} = {score}`! 😄\nThanks for playing with bot!...."
                         ) if score > 0 else await res.user.send(
                             "You scored 0. Better luck next time! 🙂"
                         )
                         break
                 else:
                     await res.user.send(
-                        content=f"For each correct answers, you get 5.\nYou scored `5*{no_of_correct_questions_answered}= {score}`! 😄\nThanks for playing with bot!...."
+                        content=f"For each correct answers, you get 5.\nYou scored \
+                            `5*{no_of_correct_questions_answered} = {score}`! 😄\nThanks for playing with bot!...."
                     ) if score > 0 else await res.user.send(
                         "You scored 0. Better luck next time! 🙂"
                     )

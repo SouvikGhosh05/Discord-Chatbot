@@ -24,7 +24,8 @@ class Info(commands.Cog):
             ("Status", str(mem.status).title(), True),
             (
                 "Activity",
-                f"{str(mem.activity.type).split('.')[-1].title() if mem.activity else 'N/A'} {mem.activity.name if mem.activity else ''}",
+                f"{str(mem.activity.type).split('.')[-1].title() if mem.activity else 'N/A'} \
+                {mem.activity.name if mem.activity else ''}",
                 True,
             ),
             (

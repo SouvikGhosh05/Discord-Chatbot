@@ -254,7 +254,9 @@ class Help(commands.Cog):
     async def covidinfo(self, ctx):
         em = discord.Embed(
             title="Covid infomation",
-            description=f"Gives current covid data of a state, type {self.prefix}covidliststates for the list all states available",
+            description=f"Gives current covid data of a state, \
+                type {self.prefix}covidliststates \
+                for the list all states available",
             color=ctx.author.color,
         )
         em.add_field(

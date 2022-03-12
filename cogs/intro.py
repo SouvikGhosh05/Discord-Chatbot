@@ -1,5 +1,4 @@
 import discord
-import json
 from discord.ext import commands
 from discord.ext.commands import MissingPermissions
 from discord.ext.commands.errors import BotMissingPermissions
@@ -22,14 +21,17 @@ class Main_BOT(commands.Cog):
         channel = member.guild.text_channels[0].id
         welcome_emby = discord.Embed(
             title="New Member!!!",
-            description=f"{member.mention} has joined the server! 🎉\nThe current number of members are {member.guild.member_count} 🥳",
+            description=f"{member.mention} has joined the server! \
+                🎉\nThe current number of members are {member.guild.member_count} 🥳",
             color=discord.Color.gold(),
         )
         await self.bot.get_channel(int(channel)).send(embed=welcome_emby)
         if not member.bot:
             github_url = "https://github.com/SouvikGhosh05"
             await user.send(
-                f"SouvikBot welcomes you to {member.guild.name}! ❤️\nThis bot is developed by Souvik, check out him on Github. Link is given below:- \n{github_url}"
+                f"SouvikBot welcomes you to {member.guild.name}! \
+                ❤️\nThis bot is developed by Souvik, check out him on Github. \
+                Link is given below:- \n{github_url}"
             )
 
     @commands.command(name="intro")
@@ -85,7 +87,7 @@ class Main_BOT(commands.Cog):
 
                     retured_fibs = await gather(*(fib(x) for x in integers))
                     fibonacci_embed = discord.Embed(
-                        title=f"The nth fibonacci number is:-",
+                        title="The nth fibonacci number is:-",
                         description="\n\n".join(
                             f"{int_th}th: {fibo}"
                             for int_th, fibo in zip(integers, retured_fibs)
@@ -93,10 +95,11 @@ class Main_BOT(commands.Cog):
                         color=discord.Color.blurple(),
                     )
                     fibonacci_embed.set_thumbnail(
-                        url="https://images-platform.99static.com//5SVBLaS5OIyGp6GsUWz7clXTZ8w=/141x1329:1354x2539/fit-in/500x500/99designs-contests-attachments/118/118791/attachment_118791273"
+                        url="https://images-platform.99static.com//5SVBLaS5OIyGp6GsUWz7clXTZ8w=/141x1329:\
+                        1354x2539/fit-in/500x500/99designs-contests-attachments/118/118791/attachment_118791273"
                     )
                     fibonacci_embed.set_footer(
-                        text=f"The fibonacci number is generated using the recursive function fib(n) = fib(n-1) + fib(n-2)"
+                        text="The fibonacci number is generated using the recursive function fib(n) = fib(n-1) + fib(n-2)"
                     )
             await ctx.send(embed=fibonacci_embed)
         else:

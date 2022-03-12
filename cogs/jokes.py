@@ -26,7 +26,7 @@ class Jokes(commands.Cog):
         if typed.lower() in ["any", "spooky", "dark", "pun", "christmas", "misc"]:
             async with ctx.typing():
 
-                url = f"https://random-stuff-api.p.rapidapi.com/joke"
+                url = "https://random-stuff-api.p.rapidapi.com/joke"
 
                 querystring = {"type": typed.lower()}
                 headers = {
@@ -62,7 +62,7 @@ class Jokes(commands.Cog):
             await ctx.send(embed=joke_embed)
         else:
             await ctx.send(
-                f"Please choose a joke type: `spooky`,`dark` ,`pun`,`christmas`, `misc`"
+                "Please choose a joke type: `spooky`,`dark` ,`pun`,`christmas`, `misc`"
             )
 
 
