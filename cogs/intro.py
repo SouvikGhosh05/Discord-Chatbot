@@ -95,8 +95,7 @@ class Main_BOT(commands.Cog):
                         color=discord.Color.blurple(),
                     )
                     fibonacci_embed.set_thumbnail(
-                        url="https://images-platform.99static.com//5SVBLaS5OIyGp6GsUWz7clXTZ8w=/141x1329:\
-                        1354x2539/fit-in/500x500/99designs-contests-attachments/118/118791/attachment_118791273"
+                        url="https://images-platform.99static.com//5SVBLaS5OIyGp6GsUWz7clXTZ8w=/141x1329:1354x2539/fit-in/500x500/99designs-contests-attachments/118/118791/attachment_118791273"
                     )
                     fibonacci_embed.set_footer(
                         text="The fibonacci number is generated using the recursive function fib(n) = fib(n-1) + fib(n-2)"

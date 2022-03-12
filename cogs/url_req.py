@@ -174,8 +174,7 @@ class Ext_Info(commands.Cog):
                     )
                     covid_embed.set_author(
                         name="Coronavirus Info",
-                        icon_url="https://cdn.discordapp.com/attachments/\
-                        857225424115597334/874307648953147422/7528_coronavirus.png",
+                        icon_url="https://cdn.discordapp.com/attachments/857225424115597334/874307648953147422/7528_coronavirus.png",
                     )
                     covid_embed.add_field(name="Population", value=data["population"])
                     covid_embed.add_field(
