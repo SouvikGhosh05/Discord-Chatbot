@@ -11,13 +11,14 @@
 #
 name: "CodeQL"
 
-on:  
+on:
   push:
-    branches: [ main ]
+    branches: [ main, Rules ]
   pull_request:
+    # The branches below must be a subset of the branches above
     branches: [ main ]
   schedule:
-    - cron: '0 12 1 * *'
+    - cron: '38 23 * * 3'
 
 jobs:
   analyze:
@@ -32,7 +33,6 @@ jobs:
       fail-fast: false
       matrix:
         language: [ 'python' ]
-        version: [ '3.9', '3.10' ]
         # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
         # Learn more about CodeQL language support at https://git.io/codeql-language-support
 
@@ -45,7 +45,6 @@ jobs:
       uses: github/codeql-action/init@v1
       with:
         languages: ${{ matrix.language }}
-        version: ${{ matrix.version }}
         # If you wish to specify custom queries, you can do so here or in a config file.
         # By default, queries listed here will override any specified in a config file.
         # Prefix the list here with "+" to use these queries and those in the config file.
