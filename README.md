@@ -1,5 +1,8 @@
 # Discord ChatBot with Python ![Discord logo](https://img.icons8.com/fluency/42/000000/discord-logo.png "Discord Python")
 
+![build-deploy](https://github.com/SouvikGhosh05/Discord-Chatbot/actions/workflows/python-app.yml/badge.svg)
+![CodeQL Analysis](https://github.com/SouvikGhosh05/Discord-Chatbot/actions/workflows/codeql-analysis.yml/badge.svg)
+
 This is a Discord ChatBot deployed on Heroku with Python which has the following features
 
 1. **This bot is based on coroutine and asyncio.**
