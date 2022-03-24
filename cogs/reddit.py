@@ -2,6 +2,7 @@ import discord
 import asyncio
 from os import getenv
 from random import choice
+from urllib.parse import urlparse
 from aiohttp import ClientSession, BasicAuth
 from discord.ext import commands
 
@@ -85,12 +86,12 @@ async def reddit_query(query=None):
                 [
                     x["data"]["title"]
                     for x in response
-                    if x["data"]["url"].startswith("https://i.redd.it")
+                    if urlparse(x["data"]["url"]).hostname == "i.redd.it"
                 ],
                 [
                     x["data"]["url"]
                     for x in response
-                    if x["data"]["url"].startswith("https://i.redd.it")
+                    if urlparse(x["data"]["url"]).hostname == "i.redd.it"
                 ],
             )
         )
@@ -107,8 +108,9 @@ class RedditApi(commands.Cog):
     async def reddit_search(self, ctx, *, query=None):
         async with ctx.typing():
             title, url = (
-                await reddit_query() if not query else await reddit_query(query.lower())
+                await reddit_query(query.lower()) if query else await reddit_query()
             )
+
             if title and url:
                 embed = discord.Embed(title=title, color=discord.Color.random())
                 embed.set_image(url=url)
