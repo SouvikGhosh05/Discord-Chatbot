@@ -6,6 +6,7 @@ on:
 
 jobs:
   test:
+    name: Test
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -30,10 +31,11 @@ jobs:
         python -m pip install --upgrade pre-commit
         pre-commit run --verbose --all-files --show-diff-on-failure
     
-  deployment: 
+  deployment:
+    name: Deploy 
     needs: [build]
     runs-on: ubuntu-latest 
-    if: github.ref == 'refs/heads/main' && job.status == 'success' && github.event_name != 'pull_request_review'
+    if: github.ref == 'refs/heads/main' && ${{ success() }} && github.event_name != 'pull_request_review'
     steps:
     - name: Deploy to Heroku
       env:
