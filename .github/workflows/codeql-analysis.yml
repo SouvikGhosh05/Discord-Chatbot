@@ -22,7 +22,7 @@ jobs:
       matrix:
         language: [ 'python' ]
         version: [ '3.9', '3.10' ]
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
