@@ -33,7 +33,7 @@ jobs:
     
   deployment:
     name: Deploy 
-    needs: [build]
+    needs: [test]
     runs-on: ubuntu-latest 
     if: github.ref == 'refs/heads/main' && ${{ success() }} && github.event_name != 'pull_request_review'
     steps:
