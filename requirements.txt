@@ -7,7 +7,7 @@ pytz==2021.3
 tzdata==2021.5
 requests==2.26.0
 async-lru==1.0.2
-Flask==2.0.2
+Flask==2.3.2
 Jinja2==3.0.3
 flake8
 gunicorn
