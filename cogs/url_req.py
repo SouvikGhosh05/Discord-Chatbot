@@ -137,30 +137,46 @@ class Ext_Info(commands.Cog):
                     )
                     data = {
                         "population": st_info["data_info"]["population"],
-                        "tested_people": st_info["7days info"]["tested"]
-                        if "tested" in st_info["7days info"].keys()
-                        else 0,
-                        "confirmed": st_info["7days info"]["confirmed"]
-                        if "confirmed" in st_info["7days info"].keys()
-                        else 0,
-                        "recovered": st_info["7days info"]["recovered"]
-                        if "recovered" in st_info["7days info"].keys()
-                        else 0,
-                        "deceased": st_info["7days info"]["deceased"]
-                        if "deceased" in st_info["7days info"].keys()
-                        else 0,
-                        "1st_dose": st_info["7days info"]["vaccinated1"]
-                        if "vaccinated1" in st_info["7days info"].keys()
-                        else 0,
-                        "2nd_dose": st_info["7days info"]["vaccinated2"]
-                        if "vaccinated2" in st_info["7days info"].keys()
-                        else 0,
-                        "test_date": st_info["data_info"]["tested"]["date"]
-                        if "date" in st_info["data_info"]["tested"].keys()
-                        else "*Not Available*",
-                        "source": st_info["data_info"]["tested"]["source"]
-                        if "source" in st_info["data_info"]["tested"].keys()
-                        else "*Not Available*",
+                        "tested_people": (
+                            st_info["7days info"]["tested"]
+                            if "tested" in st_info["7days info"].keys()
+                            else 0
+                        ),
+                        "confirmed": (
+                            st_info["7days info"]["confirmed"]
+                            if "confirmed" in st_info["7days info"].keys()
+                            else 0
+                        ),
+                        "recovered": (
+                            st_info["7days info"]["recovered"]
+                            if "recovered" in st_info["7days info"].keys()
+                            else 0
+                        ),
+                        "deceased": (
+                            st_info["7days info"]["deceased"]
+                            if "deceased" in st_info["7days info"].keys()
+                            else 0
+                        ),
+                        "1st_dose": (
+                            st_info["7days info"]["vaccinated1"]
+                            if "vaccinated1" in st_info["7days info"].keys()
+                            else 0
+                        ),
+                        "2nd_dose": (
+                            st_info["7days info"]["vaccinated2"]
+                            if "vaccinated2" in st_info["7days info"].keys()
+                            else 0
+                        ),
+                        "test_date": (
+                            st_info["data_info"]["tested"]["date"]
+                            if "date" in st_info["data_info"]["tested"].keys()
+                            else "*Not Available*"
+                        ),
+                        "source": (
+                            st_info["data_info"]["tested"]["source"]
+                            if "source" in st_info["data_info"]["tested"].keys()
+                            else "*Not Available*"
+                        ),
                         "last_updated": f"*{st_info['data_info']['last_updated'][:10]} at \
                         {st_info['data_info']['last_updated'][11:19]}*",
                     }

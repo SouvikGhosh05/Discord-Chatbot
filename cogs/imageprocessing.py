@@ -55,9 +55,13 @@ class Imageprocessing(commands.Cog):
             binary, condition = await to_thread(
                 contour_image, fp=BytesIO(await asset.read())
             )
-            await ctx.send(
-                file=discord.File(fp=BytesIO(binary), filename=f"{user.name}.png")
-            ) if condition else await ctx.send("Image processing failed!")
+            (
+                await ctx.send(
+                    file=discord.File(fp=BytesIO(binary), filename=f"{user.name}.png")
+                )
+                if condition
+                else await ctx.send("Image processing failed!")
+            )
 
     @image.command(name="emboss")
     async def image_emboss(self, ctx, user: commands.MemberConverter = None):
@@ -68,9 +72,13 @@ class Imageprocessing(commands.Cog):
             binary, condition = await to_thread(
                 emboss_image, fp=BytesIO(await asset.read())
             )
-            await ctx.send(
-                file=discord.File(fp=BytesIO(binary), filename=f"{user.name}.png")
-            ) if condition else await ctx.send("Image processing failed!")
+            (
+                await ctx.send(
+                    file=discord.File(fp=BytesIO(binary), filename=f"{user.name}.png")
+                )
+                if condition
+                else await ctx.send("Image processing failed!")
+            )
 
 
 def setup(bot):
