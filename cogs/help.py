@@ -139,7 +139,7 @@ class Help(commands.Cog):
             title="Sets welcome message to a specific channel", color=ctx.author.color
         )
         em.add_field(
-            name=f"{self.prefix}setwelcome | {self.prefix}setwlcm", value=("\u200B")
+            name=f"{self.prefix}setwelcome | {self.prefix}setwlcm", value=("\u200b")
         )
         await ctx.send(embed=em)
 
@@ -209,7 +209,7 @@ class Help(commands.Cog):
         )
         em.add_field(
             name=f"{self.prefix}serverinfo | {self.prefix}si",
-            value=("\u200B"),
+            value=("\u200b"),
             inline=True,
         )
         await ctx.send(embed=em)
@@ -221,7 +221,7 @@ class Help(commands.Cog):
             description="Sends inspirational quotes",
             color=ctx.author.color,
         )
-        em.add_field(name=f"{self.prefix}inspire | {self.prefix}i", value=("\u200B"))
+        em.add_field(name=f"{self.prefix}inspire | {self.prefix}i", value=("\u200b"))
         await ctx.send(embed=em)
 
     @help.command(aliases=["j"])
@@ -274,7 +274,7 @@ class Help(commands.Cog):
         )
         em.add_field(
             name=f"{self.prefix}covidliststates | {self.prefix}covidlst",
-            value=("\u200B"),
+            value=("\u200b"),
         )
         await ctx.send(embed=em)
 

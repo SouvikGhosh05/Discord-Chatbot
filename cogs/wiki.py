@@ -41,14 +41,18 @@ class Wiki(commands.Cog):
                         embed = discord.Embed(
                             title=content_json["title"],
                             description=content_json["extract"],
-                            url=content_json["content_urls"]["mobile"]["page"]
-                            if ctx.author.is_on_mobile()
-                            else content_json["content_urls"]["desktop"]["page"],
+                            url=(
+                                content_json["content_urls"]["mobile"]["page"]
+                                if ctx.author.is_on_mobile()
+                                else content_json["content_urls"]["desktop"]["page"]
+                            ),
                             color=discord.Color.random(),
                         )
-                        embed.set_thumbnail(
-                            url=content_json["thumbnail"]["source"]
-                        ) if "thumbnail" in content_json else None
+                        (
+                            embed.set_thumbnail(url=content_json["thumbnail"]["source"])
+                            if "thumbnail" in content_json
+                            else None
+                        )
                     else:
                         embed = discord.Embed(
                             title="Disambiguated Page!", color=discord.Color.random()
